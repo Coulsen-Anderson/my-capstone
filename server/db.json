@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Abs",
+        "workouts": ["Bicycle kicks", "Leg Raises", "Crunches", "Russian Twists", "V-Ups", "Toe Taps"]
+    },
+    {
+        "id": 2,
+        "name": "Chest",
+        "workouts": ["Bench Press", "Incline Bench", "Decline Bench", "Wide Arm Pushups", "DB Press"]
+    },
+    {
+        "id": 3,
+        "name": "Triceps",
+        "workouts": ["French Curls", "Diamond Pushups", "Tricep Pushups", "Dips"]
+    },
+    {
+        "id": 4,
+        "name": "Shoulders",
+        "workouts": ["Lateral Raises", "DB Shoulder Press", "BB Shoulder Press"]
+    },
+    {
+        "id": 5,
+        "name": "Back",
+        "workouts": ["Lat Pulldown", "Bent Over Rows", "Seated Cable Rows"]
+    },
+    {
+        "id": 6,
+        "name": "Legs",
+        "workouts": ["Squats", "Deadlift", "Lunges", "Walking Lunges", "Jump Squat"]
+    }
+]
