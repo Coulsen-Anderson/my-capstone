@@ -5,18 +5,14 @@ const getWorkouts = document.querySelector('#workouts-container')
 const absBtn = document.querySelector('#one')
 
 const chestBtn = document.querySelector('#two')
-
-
 const tricepsBtn = document.querySelector('#three')
-
-
 const shouldersBtn = document.querySelector('#four')
-
-
 const backBtn = document.querySelector('#five')
-
-
 const legsBtn = document.querySelector('#six')
+
+
+const addForm = document.getElementById('addForm')
+
 
 
 
@@ -80,6 +76,17 @@ const displayWorkouts = (obj) => {
     for(let i = 0; i < obj.workouts.length; i++){
         createWorkoutCard(obj.workouts[i])
     }
+    const form = document.createElement('section')
+    form.classList.add('innerForm')
+
+    form.innerHTML = `
+    <form id="addForm-${obj.id}">
+    <input type="text" placeholder="Add Workout" id="addInput"/>
+    <button id="submitBtn">submit</button>
+    </form>
+    `
+    getWorkouts.appendChild(form)
+    form.addEventListener('submit', addNewWorkout)
 }
 
 const createWorkoutCard = (workout) => {
@@ -88,9 +95,28 @@ const createWorkoutCard = (workout) => {
 
     workoutCard.innerHTML = `
         <p>${workout}</p>
-       
     `
+
     getWorkouts.appendChild(workoutCard)
+    
+}
+
+const addNewWorkout = (event) => {
+    event.preventDefault()
+    console.log(event.target.id)
+    const addInput = document.getElementById('addInput')
+    let bodyObj = {
+        item: addInput.value
+    }
+    const split = event.target.id.split('-')
+
+    axios.post(`${baseURL}/api/addWorkout/${split[1]}`, bodyObj)
+        .then((res) => {
+            displayWorkouts(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })   
 }
 
 

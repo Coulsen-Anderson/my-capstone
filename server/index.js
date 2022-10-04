@@ -16,8 +16,8 @@ app.get('/api/database/triceps', getWorkoutTriceps)
 app.get('/api/database/shoulders', getWorkoutShoulders)
 app.get('/api/database/back', getWorkoutBack)
 app.get('/api/database/leg', getWorkoutLeg)
-app.post('/api/database', addWorkout)
-app.delete('/api/database/:id', deleteWorkout) 
+app.post('/api/addWorkout/:id', addWorkout)
+app.delete('/api/deleteWorkout/:id', deleteWorkout) 
 
 
 app.listen(4567, () => console.log('Working on port 4567'))

@@ -40,27 +40,20 @@ module.exports = {
     },
 
     addWorkout: (req, res) => {
-        const {name, workout} = req.body
+        let {item} = req.body
+        let {id} = req.params
+        const index = database.findIndex(el => el.id === +id)
+        database[index].workouts.push(item)
 
-        let newWorkoutObject = {
-            id: workoutId,
-            name: name,
-            workout: workout,
-        }
-
-        database.push(newWorkoutObject)
-        workoutId++
-        res.status(200).send(database)
-
-
+        res.status(200).send(database[index])
     },
 
     deleteWorkout: (req, res) => {
         const index = database.findIndex(el => el.id === +req.params.id)
 
-        database.splice(index, 1)
+        database[index].workouts.splice(index, 1)
 
-        res.status(200).send(database)
+        res.status(200).send(database[index])
     }
 } 
         
